@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>projects on Reggie Alderson</title>
+    <link>https://reggiealderson.github.io/portfolio/categories/projects/</link>
+    <description>Recent content in projects on Reggie Alderson</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 01 Oct 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://reggiealderson.github.io/portfolio/categories/projects/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Finger on the property pulse - Part One</title>
+      <link>https://reggiealderson.github.io/portfolio/blog/201001proj/</link>
+      <pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://reggiealderson.github.io/portfolio/blog/201001proj/</guid>
+      <description>This blog post documents the first stage of a data science project I have undertaken involving the application of New South Wales (NSW) residential property sales data.
+In this first stage of the project, I have built a program using Python which automates the extraction, transformation, and storage of multiple years’ worth of New South Wales (NSW) property sales transactions.
+The processed dataset is stored within an SQL database and is linked to a Power BI dashboard which visually portrays the best and worst performing real estate locations in the state.</description>
+    </item>
+    
+    <item>
+      <title>Why we watch the highlights</title>
+      <link>https://reggiealderson.github.io/portfolio/blog/200717proj/</link>
+      <pubDate>Fri, 17 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://reggiealderson.github.io/portfolio/blog/200717proj/</guid>
+      <description>What makes us watch online video highlights of sporting events?
+Is it our desire to see an underdog snatch victory from the hands of a giant?
+Is it our pleasure in viewing all scoring events in one small package?
+Is it our love for a certain team?
+Is it a nail-biting score line?
+Or is it something else?
+In this report I present an analysis on the topic of the National Rugby League (NRL) and the factors which determine the viewership ratings of NRL match highlights videos on YouTube.</description>
+    </item>
+    
+    <item>
+      <title>How to build a rich dataset using web scraping with Python</title>
+      <link>https://reggiealderson.github.io/portfolio/blog/200714proj/</link>
+      <pubDate>Tue, 14 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://reggiealderson.github.io/portfolio/blog/200714proj/</guid>
+      <description>In this video tutorial I demonstrate how to create a sports statistics database using the simple, yet powerful data extraction technique known as web scraping. This technique involves collecting data across multiple web pages without having to open a web browser.
+Tutorial:   Code used: # How to efficiently create a comprehensive sports statistics data set using web scraping and Python# Install the following python modules#1 pip install urllib3#2 pip install bs4#3 pip install regex#4 pip install pandasfrom urllib.</description>
+    </item>
+    
+  </channel>
+</rss>

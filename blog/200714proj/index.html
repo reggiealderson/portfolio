@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+<title>How to build a rich dataset using web scraping with Python - Reggie Alderson</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<meta name="generator" content="Hugo 0.73.0" /><meta itemprop="name" content="How to build a rich dataset using web scraping with Python">
+<meta itemprop="description" content="How to easily create a comprehensive sports statistics database by writing a programming script that can scrape data from multiple web pages with the click of a button">
+<meta itemprop="datePublished" content="2020-07-14T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-07-14T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="325">
+<meta itemprop="image" content="https://reggiealderson.github.io/portfolio/img/proj2/Tute.JPG">
+
+
+
+<meta itemprop="keywords" content="rugby league,sport,python," /><meta property="og:title" content="How to build a rich dataset using web scraping with Python" />
+<meta property="og:description" content="How to easily create a comprehensive sports statistics database by writing a programming script that can scrape data from multiple web pages with the click of a button" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://reggiealderson.github.io/portfolio/blog/200714proj/" />
+<meta property="og:image" content="https://reggiealderson.github.io/portfolio/img/proj2/Tute.JPG" />
+<meta property="article:published_time" content="2020-07-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-07-14T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://reggiealderson.github.io/portfolio/img/proj2/Tute.JPG"/>
+
+<meta name="twitter:title" content="How to build a rich dataset using web scraping with Python"/>
+<meta name="twitter:description" content="How to easily create a comprehensive sports statistics database by writing a programming script that can scrape data from multiple web pages with the click of a button"/>
+<link rel="stylesheet" href="https://reggiealderson.github.io/portfolio/css/bundle.min.759e3848ea529eef056dab665b241e2af569e601ab80f68f8d4a4d002a155dd4.css" integrity="sha256-dZ44SOpSnu8FbatmWyQeKvVp5gGrgPaPjUpNACoVXdQ="><link rel="stylesheet" href="https://reggiealderson.github.io/portfolio/css/add-on.css">
+</head>
+
+  <body>
+    
+
+<header id="site-header">
+  <nav id="site-nav">
+    <h1 class="nav-title">
+      <a href="https://reggiealderson.github.io/portfolio/" class="nav">
+        
+          
+            Blog
+          
+        
+      </a>
+    </h1>
+    <menu id="site-nav-menu" class="flyout-menu menu">
+      
+        
+          
+          
+            <a href="https://reggiealderson.github.io/portfolio/" class="nav link"><i class='fa fa-home'></i> Home</a>
+          
+        
+      
+        
+          
+          
+            <a href="https://reggiealderson.github.io/portfolio/about/" class="nav link"><i class='far fa-id-card'></i> About me</a>
+          
+        
+      
+        
+          
+          
+            <a href="https://reggiealderson.github.io/portfolio/blog/" class="nav link"><i class='far fa-newspaper'></i> My work</a>
+          
+        
+      
+        
+          
+          
+            <a href="https://reggiealderson.github.io/portfolio/categories/" class="nav link"><i class='fas fa-sitemap'></i> Topics</a>
+          
+        
+      
+        
+          
+          
+            <a href="https://reggiealderson.github.io/portfolio/contact/" class="nav link"><i class='far fa-envelope'></i> Contact</a>
+          
+        
+      
+      <a href="#share-menu" class="nav share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+      <a href="#search-input" class="nav search-toggle"><i class="fas fa-search">&nbsp;</i>Search</a>
+    </menu>
+    <a href="#search-input" class="nav search-toggle"><i class="fas fa-search fa-2x">&nbsp;</i></a>
+    <a href="#share-menu" class="nav share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+    
+    <a href="#site-nav" class="nav nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+  </nav>
+  <menu id="search" class="menu"><input id="search-input" class="search-input menu"></input><div id="search-results" class="search-results menu"></div></menu>
+  
+  
+    <menu id="share-menu" class="flyout-menu menu">
+      <h1>Share Post</h1>
+      
+
+
+
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2freggiealderson.github.io%2fportfolio%2fblog%2f200714proj%2f&amp;title=How%20to%20build%20a%20rich%20dataset%20using%20web%20scraping%20with%20Python" target="_blank" rel="noopener" class="nav share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+  
+    
+    <a href="//twitter.com/share?text=How%20to%20build%20a%20rich%20dataset%20using%20web%20scraping%20with%20Python&amp;url=https%3a%2f%2freggiealderson.github.io%2fportfolio%2fblog%2f200714proj%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2freggiealderson.github.io%2fportfolio%2fblog%2f200714proj%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+    <a href="//www.reddit.com/submit?url=https%3a%2f%2freggiealderson.github.io%2fportfolio%2fblog%2f200714proj%2f&amp;title=How%20to%20build%20a%20rich%20dataset%20using%20web%20scraping%20with%20Python" target="_blank" rel="noopener" class="nav share-btn reddit">
+          <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
+        </a>
+  
+
+  
+        <a href="mailto:?subject=Check%20out%20this%20post%20by Reggie%20Alderson&amp;body=https%3a%2f%2freggiealderson.github.io%2fportfolio%2fblog%2f200714proj%2f" target="_blank" class="nav share-btn email" data-proofer-ignore>
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+  
+
+
+    </menu>
+  
+</header>
+
+    <div id="wrapper">
+      <section id="site-intro" >
+  <a href="https://reggiealderson.github.io/portfolio/"><img src="https://reggiealderson.github.io/portfolio/img/main/belgradeselfie.JPG" class="circle" width="" alt="Hugo Future Imperfect Slim" /></a>
+  <header>
+    <h1>Reggie Alderson</h1>
+  </header>
+  <main>
+    <p>I transform data into practical tools and insights</p>
+  </main>
+  
+    <footer>
+      <ul class="socnet-icons">
+        
+
+        
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/reggie-alderson-89193438/" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+
+
+
+
+
+<li><a href="//youtube.com/channel/UCeUa5EU5ihVDlhQLHDIo_UQ" target="_blank" rel="noopener" title="YouTube" class="fab fa-youtube"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="mailto:reggiealderson@iinet.net.au" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+    </footer>
+  
+</section>
+
+      <main id="site-main">
+        
+  <article class="post">
+    <header>
+  <div class="title">
+    
+      <h2><a href="https://reggiealderson.github.io/portfolio/blog/200714proj/">How to build a rich dataset using web scraping with Python</a></h2>
+    
+    
+      <p>How to easily create a comprehensive sports statistics database by writing a programming script that can scrape data from multiple web pages with the click of a button</p>
+    
+  </div>
+  <div class="meta">
+    <time class="published" datetime="2020-07-14 00:00:00 &#43;0000 UTC">
+      July 14, 2020
+    </time>
+    <span class="author">Reggie Alderson</span>
+    
+  </div>
+</header>
+
+    <section id="socnet-share">
+      
+
+
+
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2freggiealderson.github.io%2fportfolio%2fblog%2f200714proj%2f&amp;title=How%20to%20build%20a%20rich%20dataset%20using%20web%20scraping%20with%20Python" target="_blank" rel="noopener" class="nav share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+  
+    
+    <a href="//twitter.com/share?text=How%20to%20build%20a%20rich%20dataset%20using%20web%20scraping%20with%20Python&amp;url=https%3a%2f%2freggiealderson.github.io%2fportfolio%2fblog%2f200714proj%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2freggiealderson.github.io%2fportfolio%2fblog%2f200714proj%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+    <a href="//www.reddit.com/submit?url=https%3a%2f%2freggiealderson.github.io%2fportfolio%2fblog%2f200714proj%2f&amp;title=How%20to%20build%20a%20rich%20dataset%20using%20web%20scraping%20with%20Python" target="_blank" rel="noopener" class="nav share-btn reddit">
+          <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
+        </a>
+  
+
+  
+        <a href="mailto:?subject=Check%20out%20this%20post%20by Reggie%20Alderson&amp;body=https%3a%2f%2freggiealderson.github.io%2fportfolio%2fblog%2f200714proj%2f" target="_blank" class="nav share-btn email" data-proofer-ignore>
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+  
+
+
+    </section>
+    
+  <a href="https://reggiealderson.github.io/portfolio/blog/200714proj/" class="image featured">
+    
+      <img src="https://reggiealderson.github.io/portfolio/img/proj2/Tute.JPG" alt="">
+    
+  </a>
+
+
+    <div class="content">
+      <p>In this video tutorial I demonstrate how to create a sports statistics database using the simple, yet powerful data extraction technique known as web scraping. This technique involves collecting data across multiple web pages without having to open a web browser.</p>
+<h3 id="tutorial">Tutorial:</h3>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/vCk2sGcBlfA" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h3 id="code-used">Code used:</h3>
+<pre><code>
+# How to efficiently create a comprehensive sports statistics data set using web scraping and Python
+
+# Install the following python modules
+#1 pip install urllib3
+#2 pip install bs4
+#3 pip install regex
+#4 pip install pandas
+
+from urllib.request import Request  #1 opening website to scrape
+from urllib.request import urlopen  #1 opening website to scrape
+from bs4 import BeautifulSoup as soup  #2 webscraping HTML data
+import re #3 to parse html text
+import pandas as pd #4 storing data in data frames
+
+# https://www.foxsports.com.au/nrl/nrl-premiership/match-centre/NRL20200101
+
+allmatchcodes_list =[]
+
+matchcodes = ['0101','0102','0103','0104','0105','0106','0107','0108','0201','0202','0203','0204','0205','0206','0207','0208']
+
+for matchcode in matchcodes:
+    url_to_scrape = 'https://www.foxsports.com.au/nrl/nrl-premiership/match-centre/NRL2020' + matchcode
+
+    req = Request(url_to_scrape, headers={'User-Agent': 'Mozilla/5.0'})
+    webpage = urlopen(req)
+    page_soup = soup(webpage.read(), &quot;html.parser&quot;)
+
+    home_team_data = page_soup.findAll(&quot;div&quot;, {&quot;class&quot;: &quot;styles__TeamName-sc-1fpm22n-6 cYFnvo&quot; })
+    home_team_data_str = str(home_team_data)
+    HomeTeam_str = (re.findall(r'(?&lt;=&gt;)[^&lt;:]+(?=:?&lt;)',home_team_data_str)[0])
+
+    away_team_data = page_soup.findAll(&quot;div&quot;, {&quot;class&quot;: &quot;styles__TeamName-sc-1fpm22n-6 hgzvAy&quot; })
+    away_team_data_str = str(away_team_data)
+    AwayTeam_str = (re.findall(r'(?&lt;=&gt;)[^&lt;:]+(?=:?&lt;)',away_team_data_str)[0])
+
+    score_data = page_soup.findAll(&quot;div&quot;, {&quot;class&quot;: &quot;styles__MatchScore-sc-3rdpqd-0 fcKRjY&quot;})
+    score_data_str = str(score_data)
+    scores_str = (re.findall(r'(?&lt;=&gt;)[^&lt;:]+(?=:?&lt;)',score_data_str)[0:3])
+
+    Home_team_score = float(scores_str[0])
+    Away_team_score = float(scores_str[2])
+
+    maindata = [matchcode, HomeTeam_str, AwayTeam_str, Home_team_score, Away_team_score]
+    maindata_df = pd.DataFrame(maindata).T
+
+    maindata_df = maindata_df.rename(columns={0: &quot;Matchcode&quot;, 1: &quot;HomeTeamName&quot;, 2: &quot;AwayTeamName&quot;, 3: &quot;HomeTeamScore&quot;, 4: &quot;AwayTeamScore&quot;})
+
+    types_of_scoring = page_soup.findAll(&quot;th&quot;, {&quot;class&quot;: &quot;styles__EventHeader-sc-18qpy7g-2 iJwCdf&quot;})
+
+    typesofpts_featured_list = []
+    for i in types_of_scoring:
+        string_a = str(i)
+        string_b = string_a.replace(&quot; &quot;, &quot;&quot;)
+        extracter_a = (re.findall(r'(?&lt;=&gt;)[^&lt;:]+(?=:?&lt;)',string_b)[0:10])
+        typesofpts_featured_list.append(extracter_a)
+
+    typesofpts_featured_list_new = []
+    for i in typesofpts_featured_list:
+        string_aa = str(i).strip(&quot;[]&quot;)
+        string_bb = str(string_aa).replace(&quot;'&quot;,&quot;&quot;)
+        typesofpts_featured_list_new.append(string_bb+&quot;_HT&quot;)
+        typesofpts_featured_list_new.append(string_bb+&quot;_AT&quot;)
+
+    scoreline_changes = page_soup.findAll(&quot;td&quot;, {&quot;class&quot;: &quot;styles__EventData-sc-18qpy7g-1 eyWugu&quot;})
+
+    matchscorelinelist = []
+    for i in scoreline_changes:
+        string_aaa = str(i)
+        string_bbb = string_aaa.replace(&quot; &quot;,&quot;&quot;)
+        extracter_aaa = (re.findall(r'(?&lt;=&gt;)[^&lt;:]+(?=:?&lt;)',string_bbb)[0:500])
+        extract_bbb = extracter_aaa[1::3]
+        matchscorelinelist.append(extract_bbb)
+
+    df_scoreevents_a = pd.DataFrame(matchscorelinelist)
+    df_scoreevents = df_scoreevents_a.T
+    df_scoreevents.columns = typesofpts_featured_list_new
+
+    df_scoreevents_counts_a = pd.DataFrame(df_scoreevents.count(axis='rows'))
+    df_scoreevents_counts = df_scoreevents_counts_a.T
+
+    dataframes = [maindata_df, df_scoreevents_counts]
+    df_combined = pd.concat(dataframes, axis=1)
+
+    allmatchcodes_list.append(df_combined)
+    
+all_matches_df = pd.concat(allmatchcodes_list).fillna(0)
+all_matches_df['Final_Scoreline_Margin'] = abs(all_matches_df['HomeTeamScore'] - all_matches_df['AwayTeamScore'])
+all_matches_df.to_csv(r'C:\Desktop\all_matches_df.csv', index = False, header=True)
+
+</code></pre>
+    </div>
+    <footer>
+      <ul class="stats">
+  <li class="categories">
+    <ul>
+    
+      
+        
+          <li><a class="article-terms-link" href="https://reggiealderson.github.io/portfolio/categories/tutorials/">tutorials</a></li>
+        
+          <li><a class="article-terms-link" href="https://reggiealderson.github.io/portfolio/categories/projects/">projects</a></li>
+        
+      
+    
+    </ul>
+  </li>
+  <li class="tags">
+    <ul>
+    
+      
+        
+          <li><a class="article-terms-link" href="https://reggiealderson.github.io/portfolio/tags/rugby-league/">rugby league</a></li>
+        
+          <li><a class="article-terms-link" href="https://reggiealderson.github.io/portfolio/tags/sport/">sport</a></li>
+        
+          <li><a class="article-terms-link" href="https://reggiealderson.github.io/portfolio/tags/python/">python</a></li>
+        
+      
+    
+    </ul>
+  </li>
+</ul>
+
+    </footer>
+  </article>
+  
+  <article class="post">
+    
+<div>
+  <h2>Say something</h2>
+    <form id="post-js-form" class="post-new-comment" method="POST">
+      
+      <h5 class='post-reply-notice hidden'>
+        <span class='post-reply-arrow'></span><span class='post-reply-name'></span>
+      </h5>
+
+      
+      <input type="hidden" name="options[entryId]" value="2156b24e12edcb5f5aa6504c7c61caff">
+      <input type='hidden' name='fields[replyThread]' value=''>
+      <input type='hidden' name='fields[replyID]' value=''>
+      <input type='hidden' name='fields[replyName]' value=''>
+
+      
+      <input required name='fields[name]' type='text' placeholder='Your name (Required)'>
+      <input name='fields[website]' type='text' placeholder='Your website'>
+      <input required name='fields[email]' type='email' placeholder='Your email address (Required for Gravatar)'>
+      <textarea required name='fields[body]' placeholder='Your message. Feel free to use Markdown (Google &#39;Markdown Cheat Sheet&#39;).' rows='10'></textarea>
+
+      
+      
+
+      
+      <p class='post-submit-notice'>
+        <strong class='post-submit-notice-text submit-success hidden'>Thanks for your comment! It will be shown on the site once it has been approved.</strong>
+        <strong class='post-submit-notice-text submit-failed hidden'>Sorry, there was an error with your submission.  Please make sure all required fields have been completed and try again.</strong>
+      </p>
+
+      
+      <input type='submit' value='Submit' class='button'>
+      <input type='submit' value='Submitted' class='hidden button' disabled>
+      <input type='reset' value='Reset' class='button'>
+    </form>
+</div>
+
+
+<div>
+  <h2>Comments</h2>
+
+  
+    
+      <p>Nothing yet.</p>
+    
+  
+</div>
+
+  </article>
+
+
+  <div class="pagination">
+  
+  
+    <a href="https://reggiealderson.github.io/portfolio/blog/200717proj/" class="button"><div class="next"><div>Why we watch the highlights</div></div></a>
+  
+</div>
+
+
+      </main>
+      <section id="site-sidebar">
+  
+    <section id="recent-posts">
+      <header>
+        <h1>Recent posts</h1>
+      </header>
+      
+      <article class="mini-post">
+        <section>
+          
+  <a href="https://reggiealderson.github.io/portfolio/blog/201001proj/" class="image featured">
+    
+      <img src="https://reggiealderson.github.io/portfolio/img/proj3/header.JPG" alt="">
+    
+  </a>
+
+
+        </section>
+        <header>
+          <h2><a href="https://reggiealderson.github.io/portfolio/blog/201001proj/">Finger on the property pulse - Part One</a></h2>
+          <time class="published" datetime="">October 1, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+        <section>
+          
+  <a href="https://reggiealderson.github.io/portfolio/blog/200717proj/" class="image featured">
+    
+      <img src="https://reggiealderson.github.io/portfolio/img/proj1/header3.JPG" alt="">
+    
+  </a>
+
+
+        </section>
+        <header>
+          <h2><a href="https://reggiealderson.github.io/portfolio/blog/200717proj/">Why we watch the highlights</a></h2>
+          <time class="published" datetime="">July 17, 2020</time>
+        </header>
+      </article>
+      
+      
+        <footer>
+          <a href="https://reggiealderson.github.io/portfolio/blog/" class="button">See more</a>
+        </footer>
+      
+    </section>
+  
+
+  
+    
+      <section id="categories">
+        <header>
+          <h1><a href="https://reggiealderson.github.io/portfolio/categories">Categories</a></h1>
+        </header>
+        <ul>
+          
+            
+          
+          
+          <li>
+            
+              <a href="https://reggiealderson.github.io/portfolio/categories/projects/">projects<span class="count">3</span></a>
+            
+          
+          <li>
+            
+              <a href="https://reggiealderson.github.io/portfolio/categories/tutorials/">tutorials<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="https://reggiealderson.github.io/portfolio/categories/analysis/">analysis<span class="count">1</span></a>
+            
+          
+          </li>
+        </ul>
+      </section>
+    
+  
+
+  
+    <section id="mini-bio">
+      <header>
+        <h1>About</h1>
+      </header>
+      <p>Hey! My name's Reggie. I am a researcher and data analyst. This website showcases my personal data science portfolio and other creative projects.</p>
+      <footer>
+        <a href="https://reggiealderson.github.io/portfolio/about" class="button">Learn More</a>
+      </footer>
+    </section>
+  
+</section>
+
+      <footer id="site-footer">
+  
+      <ul class="socnet-icons">
+        
+
+        
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/reggie-alderson-89193438/" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+
+
+
+
+
+<li><a href="//youtube.com/channel/UCeUa5EU5ihVDlhQLHDIo_UQ" target="_blank" rel="noopener" title="YouTube" class="fab fa-youtube"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="mailto:reggiealderson@iinet.net.au" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+  
+  <p class="copyright">
+    
+      &copy; 2020
+      
+        Reggie Alderson
+      
+    . <br>
+    Theme: <a href='https://github.com/pacollins/hugo-future-imperfect-slim' target='_blank' rel='noopener'>Hugo Future Imperfect Slim</a><br>A <a href='https://html5up.net/future-imperfect' target='_blank' rel='noopener'>HTML5 UP port</a> | Powered by <a href='https://gohugo.io/' title='0.73.0' target='_blank' rel='noopener'>Hugo</a>
+  </p>
+</footer>
+<a id="back-to-top" href="#" class="fas fa-arrow-up fa-2x"></a>
+
+      <script src="https://reggiealderson.github.io/portfolio/js/highlight.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script><script src="https://reggiealderson.github.io/portfolio/js/bundle.min.4db76c46de62d1afd0ba2b07b698bd109211db28449d030b84dffe9c62431653.js" integrity="sha256-TbdsRt5i0a/QuisHtpi9EJIR2yhEnQMLhN/&#43;nGJDFlM="></script>
+    <script src="https://reggiealderson.github.io/portfolio/js/add-on.js"></script>
+    </div>
+  </body>
+</html>

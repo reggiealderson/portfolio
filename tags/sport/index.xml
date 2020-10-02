@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sport on Reggie Alderson</title>
+    <link>https://reggiealderson.github.io/portfolio/tags/sport/</link>
+    <description>Recent content in sport on Reggie Alderson</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 17 Jul 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://reggiealderson.github.io/portfolio/tags/sport/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Why we watch the highlights</title>
+      <link>https://reggiealderson.github.io/portfolio/blog/200717proj/</link>
+      <pubDate>Fri, 17 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://reggiealderson.github.io/portfolio/blog/200717proj/</guid>
+      <description>What makes us watch online video highlights of sporting events?
+Is it our desire to see an underdog snatch victory from the hands of a giant?
+Is it our pleasure in viewing all scoring events in one small package?
+Is it our love for a certain team?
+Is it a nail-biting score line?
+Or is it something else?
+In this report I present an analysis on the topic of the National Rugby League (NRL) and the factors which determine the viewership ratings of NRL match highlights videos on YouTube.</description>
+    </item>
+    
+    <item>
+      <title>How to build a rich dataset using web scraping with Python</title>
+      <link>https://reggiealderson.github.io/portfolio/blog/200714proj/</link>
+      <pubDate>Tue, 14 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://reggiealderson.github.io/portfolio/blog/200714proj/</guid>
+      <description>In this video tutorial I demonstrate how to create a sports statistics database using the simple, yet powerful data extraction technique known as web scraping. This technique involves collecting data across multiple web pages without having to open a web browser.
+Tutorial:   Code used: # How to efficiently create a comprehensive sports statistics data set using web scraping and Python# Install the following python modules#1 pip install urllib3#2 pip install bs4#3 pip install regex#4 pip install pandasfrom urllib.</description>
+    </item>
+    
+  </channel>
+</rss>
