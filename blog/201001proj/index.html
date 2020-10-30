@@ -10,7 +10,7 @@
 <meta itemprop="description" content="Building a comprehensive property sales database and dashboard">
 <meta itemprop="datePublished" content="2020-10-01T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-10-01T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="4403">
+<meta itemprop="wordCount" content="4364">
 <meta itemprop="image" content="https://reggiealderson.github.io/portfolio/img/proj3/header.JPG">
 
 
@@ -272,10 +272,8 @@
       <p>This blog post documents the first stage of a data science project I have undertaken involving the application of New South Wales (NSW) residential property sales data.</p>
 <p>In this first stage of the project, I have built a program using Python which automates the extraction, transformation, and storage of multiple years’ worth of New South Wales (NSW) property sales transactions.</p>
 <p>The processed dataset is stored within an SQL database and is linked to a Power BI dashboard which visually portrays the best and worst performing real estate locations in the state. The program can automatically check whether new raw property sales data is available online to be processed – thus keeping the dataset and dashboard up to date.</p>
-<p><em>Coming soon..</em>
-<em><a href="">Click here</a></em> to watch me demonstrate how the Python program works, or keep scrolling down to read the full blog post, which details the step by step process I went through to build the dataset.</p>
-<p><em>Coming soon..</em>
-<em><a href="">Click here</a></em> to watch me demo the analytics dashboard. I consider this dashboard to be what I have coined, a ‘Minimum Viable Dashboard’ – one which will continue to be improved upon. By no means do I consider it, in its current state, to be fully polished or exhausted of all potential features.</p>
+<p><em><a href="https://youtu.be/-Xd3crw4vU0">Click here</a></em> to watch me demonstrate how the Python program works, or keep scrolling down to read the full blog post, which details the step by step process I went through to build the dataset.</p>
+<p><em><a href="https://youtu.be/wyd5zpCESGw">Click here</a></em> to watch me demo the analytics dashboard. I consider this dashboard to be what I have coined, a ‘Minimum Viable Dashboard’ – one which will continue to be improved upon. By no means do I consider it, in its current state, to be fully polished or exhausted of all potential features.</p>
 <p>The remainder of this blog post provides a brief description of the overall data science project before diving into the processes involved in Part One.</p>
 <h2 id="contents">Contents</h2>
 <ul>
@@ -293,9 +291,9 @@
 <ul>
 <li><a href="#the-program-in-its-final-form">The program in its final form</a></li>
 <li><a href="#disclaimer-about-the-step-by-step-process-i-went-through">Disclaimer about the step by step process I went through</a></li>
-<li><a href="#step-1:-using-python-to-extract-and-transform-the-raw-dataset">Step 1: Using Python to extract and transform the raw dataset</a></li>
-<li><a href="#step-2:-using-sql-to-analyse-and-further-transform-the-dataset">Step 2: Using SQL to analyse and further transform the new dataset</a></li>
-<li><a href="#step-3:-using-a-geocoding-api-to-enhance-the-dataset">Step 3: Using a geocoding API to enhance the dataset</a></li>
+<li><a href="#using-python-to-extract-and-transform-the-raw-dataset">Step 1: Using Python to extract and transform the raw dataset</a></li>
+<li><a href="#using-sql-to-analyse-and-further-transform-the-dataset">Step 2: Using SQL to analyse and further transform the new dataset</a></li>
+<li><a href="#using-a-geocoding-api-to-enhance-the-dataset">Step 3: Using a geocoding API to enhance the dataset</a></li>
 </ul>
 </li>
 <li>
@@ -357,14 +355,15 @@
     <img src="https://reggiealderson.github.io/portfolio/img/proj3/program.JPG"/> 
 </figure>
 </p>
-<p><em><a href="">Click here</a></em> to watch me demonstrate how the Python program works, or keep scrolling down to read the full blog post, which details the step by step process I went through to build the dataset.</p>
+<p><em><a href="https://youtu.be/-Xd3crw4vU0">Click here</a></em> to watch me demonstrate how the Python program works, or keep scrolling down to read the full blog post, which details the step by step process I went through to build the dataset.</p>
 <h3 id="disclaimer-about-the-step-by-step-process-i-went-through">Disclaimer about the step by step process I went through</h3>
 <p>The following documentation of the ETL (Extraction, Transformation, Loading) process I undertook does not cover every troubleshooting event and revision of code that I made. To reduce the length of this report, I have not explicitly included any Python code. However, throughout this report I have included links to several notebooks containing all the Python code needed to replicate the project. The online repository for these notebooks can be accessed with this link:</p>
 <p><a href="https://github.com/reggiealderson/NSWpropertysales">https://github.com/reggiealderson/NSWpropertysales</a></p>
 <p>Before finalising the Python scripts featured in these notebooks, I had already gone through several test cycles of extracting, transforming, and loading data, while assessing the cleanliness and completeness of each separate test dataset. There has been much editing of Python code and SQL querying in order to get everything to run efficiently and to minimise the occurrence of missing data.</p>
 <p>There are imperfections with the raw data (sourced from the NSW Property Website). However, leaving most of these imperfections unattended would not have been a sensible decision if I were to take seriously the validity of future insights drawn from the final custom dataset. In this report I will refer to a few of these imperfections which I have needed to tackle.</p>
 <p>Obviously during this initial phase of the project, I did not need to process each property transaction record from multiple years’ worth of property sales data. This report follows the progress of an initial dataset with a sample size reflecting 12 weeks of property sales transactions. This equates to roughly 33,000 individual property sales transactions (in the raw, unprocessed dataset) and was a large enough sample size to allow me to spot any significant flaws in both my code, and the validity and consistency of the raw data. It is also a small enough sample size to prevent unnecessary delays in the processing of data at such a preliminary stage of the project.</p>
-<h3 id="step-1-using-python-to-extract-and-transform-the-raw-dataset">Step 1: Using Python to extract and transform the raw dataset</h3>
+<h3 id="step-1">Step 1:</h3>
+<h3 id="using-python-to-extract-and-transform-the-raw-dataset">Using Python to extract and transform the raw dataset</h3>
 <p>The first step I took in extracting data from the raw DAT files was to identify the data points that I deemed relevant and useful for future analytics reporting. Below is a zoomed in perspective of one of the DAT files viewed in Excel.</p>
 <figure>
     <img src="https://reggiealderson.github.io/portfolio/img/proj3/Picture2.jpg"/> 
@@ -386,7 +385,8 @@
 <p>☑ It is now much clearer whether a property is a house or is a unit, whereas the raw data did not have such a simplified Boolean data point to distinguish this.</p>
 <p>☑ Extra code was added to check for missing data points, as well as to delete records with missing data points if need be.</p>
 <p>I subsequently saved the processed dataset into a csv file, ready for upload to a MySQL database.</p>
-<h3 id="step-2-using-sql-to-analyse-and-further-transform-the-dataset">Step 2: Using SQL to analyse and further transform the dataset</h3>
+<h3 id="step-2">Step 2:</h3>
+<h3 id="using-sql-to-analyse-and-further-transform-the-dataset">Using SQL to analyse and further transform the dataset</h3>
 <p>For the 12 weeks of property sales data I was working with, I saved the processed data into a csv file in anticipation to load it into an SQL database.</p>
 <p>I chose MySQL as the relational database management system to handle my dataset and used the accompanying MySQL Workbench software to run SQL queries. It is possible to run SQL queries via Python code, but the Workbench is much easier to use and includes shortcut tools that speed up the process. I would however need to use Python code to load the dataset into a MySQL database.</p>
 <p>For a more technical documentation of the procedures applied within this phase, please click the link below, which includes SQL and Python code that anyone can copy.</p>
@@ -399,7 +399,8 @@
 <p>Python code was then used to load the dataset into the ‘property_sales’ table of the SQL database.</p>
 <p>Inside the MySQL Workbench application, I ran several SQL queries to ensure the correct number of rows were stored in the table, as well as to find and delete duplicate rows. Using SQL queries, I found and removed 4,314 duplicate entries.  This figure equates to a 13% reduction to the size of the dataset. I was incredibly surprised the raw dataset included such a high proportion of duplicate entries.</p>
 <p>In the subsequent, streamlined ETL process (in which the whole ETL process can be automated with the click of a single button), I use Python code to remove duplicate entries (as this method takes a matter of seconds to process as opposed to several minutes using MySQL).</p>
-<h3 id="step-3-using-a-geocoding-api-to-enhance-the-dataset">Step 3: Using a geocoding API to enhance the dataset</h3>
+<h3 id="step-3">Step 3:</h3>
+<h3 id="using-a-geocoding-api-to-enhance-the-dataset">Using a geocoding API to enhance the dataset</h3>
 <p>While querying the data in MySQL Workbench I noticed that the number of unique district codes featured in the dataset was greater than the number of districts listed in the technical documentation for the raw data (linked below).</p>
 <p><a href="https://www.valuergeneral.nsw.gov.au/__data/assets/pdf_file/0018/216405/Property_Sales_Data_File_District_Codes_and_Names.pdf">https://www.valuergeneral.nsw.gov.au/__data/assets/pdf_file/0018/216405/Property_Sales_Data_File_District_Codes_and_Names.pdf</a></p>
 <p>I also noticed the following warning in the documentation:</p>
@@ -498,7 +499,12 @@
 <p>From a User Interface standpoint there are two broad elements built into the dashboard. Those being filters and the other being visualisations. There are three main filters positioned at the top of the interface, one for filtering the data in the visualisations by date, one for filtering by property type, and one for filtering by sample size. A fourth, and less important filter, is displayed in the bottom left of the interface, which is used to filter the data by three large geographic regions – useful, for instance, in comparing districts with each other that are all located within the Greater Western Sydney region.</p>
 <p>There are three data visualisations. The one on the left is a Shape Map, which visually contrasts the differing districts in New South Wales. With this visual the user can make several interactions including zooming in and out, selecting a district to focus the other two visualisations, and hovering over each district to provide various statistics pertaining to that district. The second visualisation is a table, located in the top right-hand side of the interface. This gives precise figures for each of the key metrics pertaining to the overall theme. I should mention that the overall theme is a comparison in property prices between two periods – as denoted by the title located in the top left-hand side of the panel. The third visualisation is a scatterplot and is used to visually compare four different metrics all within the same two-dimensional space. The Y and X axis of the scatterplot convey Median Sales Price (Current Period) and the % Change in Median Sale Price. The two differing shades of blue for each dot separate each district as either one which has had an increase in sale price or a decrease. The size reflects the absolute value in the change in median sale price.</p>
 <p>I have ensured all elements, including colour schemes, are labelled, so as to give an immediate explanation to the user. The sample size filter is an important element in my opinion – and one which I feel is underutilised in dashboard design (from what I gather during my research).  The importance comes from the potential to be misled by distinctions in colours and sizes of bars when comparing each district. A district with less than 10 transactions for a selected date period can produce wild swings in median sale price – thus standing out in the visualisations, which is not ideal if validity of insights is of importance to the end user.</p>
-<p><em><a href="">Click here</a></em> to watch me demo the analytics dashboard, or scroll to the end of this blog post to read about the data model design and Power Query Editor steps I took within Power BI prior to creating the dashboard.</p>
+<p>Watch me demo the dashboard:</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/wyd5zpCESGw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
 <p><strong>This ends Part One of my series of Finger on the Property Pulse posts. I aim to produce more insights and dashboard designs to share! Please let me know if you like what you have seen or have any requests.</strong></p>
 
     </div>
