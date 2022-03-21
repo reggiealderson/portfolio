@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>streamlit on Reggie Alderson</title>
+    <link>https://reggiealderson.github.io/portfolio/tags/streamlit/</link>
+    <description>Recent content in streamlit on Reggie Alderson</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 21 Mar 2022 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://reggiealderson.github.io/portfolio/tags/streamlit/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Combining Netflix with Python to learn a foreign language</title>
+      <link>https://reggiealderson.github.io/portfolio/blog/220313proj/</link>
+      <pubDate>Mon, 21 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://reggiealderson.github.io/portfolio/blog/220313proj/</guid>
+      <description>Click here to use the app.
+Click here to view the source code.
+More documentation and background info to come.</description>
+    </item>
+    
+  </channel>
+</rss>

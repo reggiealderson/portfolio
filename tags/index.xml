@@ -5,10 +5,46 @@
     <link>https://reggiealderson.github.io/portfolio/tags/</link>
     <description>Recent content in Tags on Reggie Alderson</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 17 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 21 Mar 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://reggiealderson.github.io/portfolio/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>natural language processing</title>
+      <link>https://reggiealderson.github.io/portfolio/tags/natural-language-processing/</link>
+      <pubDate>Mon, 21 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://reggiealderson.github.io/portfolio/tags/natural-language-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://reggiealderson.github.io/portfolio/tags/python/</link>
+      <pubDate>Mon, 21 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://reggiealderson.github.io/portfolio/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spacy</title>
+      <link>https://reggiealderson.github.io/portfolio/tags/spacy/</link>
+      <pubDate>Mon, 21 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://reggiealderson.github.io/portfolio/tags/spacy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>streamlit</title>
+      <link>https://reggiealderson.github.io/portfolio/tags/streamlit/</link>
+      <pubDate>Mon, 21 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://reggiealderson.github.io/portfolio/tags/streamlit/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>rugby league</title>
@@ -25,15 +61,6 @@
       <pubDate>Fri, 17 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://reggiealderson.github.io/portfolio/tags/sport/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>python</title>
-      <link>https://reggiealderson.github.io/portfolio/tags/python/</link>
-      <pubDate>Tue, 14 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://reggiealderson.github.io/portfolio/tags/python/</guid>
       <description></description>
     </item>
     
