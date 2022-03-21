@@ -1,7 +1,7 @@
 [{
     "title": "Combining Netflix with Python to learn a foreign language",
     "date": "March 21, 2022",
-    "description": "I've build an app that utilises subtitle data aimed at helping people learn a foreign language when watching Netflix",
+    "description": "I've built an analytics app aimed at helping users learn a foreign language by watching Netflix",
     "body": "Click here to use the app.\nClick here to view the source code.\nMore documentation and background info to come.\n",
     "ref": "/blog/220313proj/"
   },{
